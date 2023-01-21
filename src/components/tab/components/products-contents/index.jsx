@@ -4,15 +4,20 @@ import { BtnIncrementDecrement } from '../../../btn-increment-decrement'
 import { CardPrices } from '../../../card-prices'
 import { useContext } from 'react'
 import OrderContext from '../../../../context/OrderContext'
+import { useEffect } from 'react'
 
 export const ProductsContent = () => {
-    const orderContext = useContext(OrderContext)
+    const {state, dispatch} = useContext(OrderContext)
 
-    console.log(orderContext)
+    useEffect(() => {
+        dispatch({type: "INIT"})
+    }, [])
 
     return (
-        <> 
-            {mock.map((product,i) =>{
+        <>  
+            {state.products == null ? 
+                    <h1>Loading...</h1> : 
+                state.products.map((product, i) => {
                 return (
                     <Styled.CardProduct key={i}>
                         <img src={product.img} alt={product.name}/>
@@ -25,6 +30,7 @@ export const ProductsContent = () => {
                     </Styled.CardProduct>
                 )
             })}
+            
             <CardPrices />
         </>
     )
