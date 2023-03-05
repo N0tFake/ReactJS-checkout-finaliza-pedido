@@ -5,33 +5,59 @@ import * as Styled from './styled'
 
 export const CardPrices = () => {
 
-    const {state} = useContext(OrderContext)
+    const {state, dispatch} = useContext(OrderContext)
 
-    const [statusCupom, setStatusCupom] = useState('')
+    const [statusCupom, setStatusCupom] = useState({
+        valid: false,
+        status: ''
+    })
     const inputRef = useRef()
 
     const handleCupom = () => {
         if(inputRef.current.value.length < 3 || inputRef.current.value == '' || inputRef.current.value == null){
-            setStatusCupom("Cupom Invalido")
+            setStatusCupom({
+                valid: false,
+                status: "Cupom Invalido"
+            })
         }else{
-            setStatusCupom("Cupom Aplicado")
+            const discount = 99
+            const status = `Cupom Aplicado: ${discount}% de desconto!` 
+            setStatusCupom({
+                valid: true,
+                status: status
+            })
+            dispatch({type: "DISCOUNT", prct: discount})
         }    
     }
 
     const endPrice = state.endPrice
-    const discount = -0.00
-    const total = endPrice - discount 
+    const discount = state.discount.toString()
+    const total = endPrice 
 
     return (
         <Styled.CardPricesStyle>
             <div>
                 <div className="container-cupom">
                     <span>Código promocional: </span>
-                    <input ref={inputRef} type="text" placeholder="Insira o código" />
-                    <button onClick={handleCupom}>Aplicar</button>
-
-                    <div>
-                        {statusCupom}               
+                    <div className='inputCupom'>
+                        <input ref={inputRef} type="text" placeholder="Insira o código" />
+                        <button onClick={handleCupom}>Aplicar</button>
+                    </div>
+                    <div className='resultCupom'>
+                        { statusCupom.valid 
+                        ?
+                            <span className='cupomValid'>
+                                {statusCupom.status}
+                            </span>
+                        :
+                            statusCupom.status != ''
+                            ?
+                                <span className='cupomInvalid'>
+                                    {statusCupom.status}
+                                </span>    
+                            :null
+                            
+                        }
                     </div>
 
                 </div>

@@ -15,23 +15,9 @@ export default [
     },
     {
         "id": 3,
-        "name": 'produto 2',
+        "name": 'produto 3',
         "img": 'src/assets/placeholder.png',
         "quant": 1,
         "price": 200.56,
-    },
-    {
-        "id": 4,
-        "name": 'produto 2',
-        "img": 'src/assets/placeholder.png',
-        "quant": 1,
-        "price": 200.56,
-    },
-    {
-        "id": 5,
-        "name": 'produto 2',
-        "img": 'src/assets/placeholder.png',
-        "quant": 1,
-        "price": 200.56,
-    },
+    }
 ]
