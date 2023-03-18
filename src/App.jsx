@@ -1,11 +1,12 @@
+import { useEffect } from 'react'
 import { 
   Route, 
   Routes,
   Link, 
   BrowserRouter,
 } from 'react-router-dom'
-import { PaymentContent } from './components/tab/components/payment-contents'
-import { ProductsContent } from './components/tab/components/products-contents'
+import { PaymentContent } from './components/payment-contents'
+import { ProductsContent } from './components/products-contents'
 import * as Styled from './styled-app'
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
               <Route path='/' element={<ProductsContent />} />
               <Route path='/order' element={<ProductsContent />} />
               <Route path='/payment' element={<PaymentContent />} />
+              <Route path='/confirmation' element={<PaymentContent />} />
           </Routes>
         </div>
       </Styled.ContainerMainStyle>

@@ -1,7 +1,7 @@
 import * as Styled from './styled'
-import { CardPrices } from '../../../card-prices'
+import { CardPrices } from '../card-prices'
 import { useEffect, useContext } from 'react'
-import OrderContext from '../../../../context/OrderContext'
+import OrderContext from '../../context/OrderContext'
 import { Plus, Minus, Trash } from 'phosphor-react'
 
 
