@@ -88,3 +88,9 @@ export const BtnIncrementDecrementStyle = styled('div')`
     }
 
 `
+
+export const InfosCard = styled('div')`
+    background-color: red;
+    display: flex;
+    flex-direction: column;
+`

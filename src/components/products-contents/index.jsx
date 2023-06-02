@@ -1,8 +1,8 @@
-import * as Styled from './styled'
-import { CardPrices } from '../card-prices'
-import { useEffect, useContext } from 'react'
+import { Minus, Plus, Trash } from 'phosphor-react'
+import { useContext, useEffect } from 'react'
 import OrderContext from '../../context/OrderContext'
-import { Plus, Minus, Trash } from 'phosphor-react'
+import { CardPrices } from '../card-prices'
+import * as Styled from './styled'
 
 
 export const ProductsContent = () => {

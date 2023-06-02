@@ -1,9 +1,8 @@
-import { useEffect } from 'react'
-import { 
-  Route, 
-  Routes,
-  Link, 
+import {
   BrowserRouter,
+  Link,
+  Route,
+  Routes,
 } from 'react-router-dom'
 import { PaymentContent } from './components/payment-contents'
 import { ProductsContent } from './components/products-contents'
