@@ -1,6 +1,5 @@
-import { useReducer } from "react";
-import { createContext } from "react";
-import mock from "../mock"
+import { createContext, useReducer } from "react";
+import mock from "../mock";
 
 const OrderContext = createContext();
 

@@ -1,4 +1,5 @@
 import { useContext, useRef, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import OrderContext from '../../context/OrderContext'
 import { Btn } from '../btn'
 import * as Styled from './styled'
@@ -12,6 +13,8 @@ export const CardPrices = () => {
         status: ''
     })
     const inputRef = useRef()
+
+    const navigate = useNavigate()
 
     const handleCupom = () => {
         if(inputRef.current.value.length < 3 || inputRef.current.value == '' || inputRef.current.value == null){
@@ -65,7 +68,7 @@ export const CardPrices = () => {
                 <span>Desconto: R$ {discount}</span>
                 <span>Total: {total}</span>
             </div>
-            <Btn onClick={()=>console.log('dsasd')} disabled={state.products == null}>confirmar</Btn>
+            <Btn onClick={()=>navigate('/payment')} disabled={state.products == null}>confirmar</Btn>
         </Styled.CardPricesStyle>
     )
 }
